@@ -154,7 +154,7 @@ export function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-1.5 text-sm font-medium text-secondary-foreground mb-6">
             <div className="h-1.5 w-1.5 rounded-full bg-accent"></div>
-            Cloud Processing Operations
+            Outsourcing paghe. Senza compromessi.
           </div>
 
           {/* Headline */}

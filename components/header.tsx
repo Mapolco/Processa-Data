@@ -23,10 +23,11 @@ export function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-                <span className="text-sm font-bold text-primary-foreground">P</span>
-              </div>
-              <span className="text-lg font-semibold tracking-tight text-foreground">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#0f1f3d"/>
+                <text x="16" y="21" textAnchor="middle" fill="white" fontWeight="bold" fontSize="14" fontFamily="system-ui, sans-serif">PD</text>
+              </svg>
+              <span className="text-lg tracking-tight text-foreground">
                 PROCESSA DATA
               </span>
             </Link>
