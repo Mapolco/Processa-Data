@@ -55,7 +55,7 @@ export function Contact() {
             <div className="mt-8 pt-8 border-t border-border">
               <p className="text-sm text-muted-foreground mb-4">Scelto da</p>
               <div className="flex flex-wrap gap-3">
-                {["Consulenti del Lavoro", "Studi Paghe", "Studi di Contabilità", "Centri Elaborazione Paghe"].map((badge) => (
+                {["Consulenti del Lavoro", "Studi Paghe", "Studi di Contabilità", "Centri Outsourcing Paghe"].map((badge) => (
                   <span key={badge} className="text-xs px-3 py-1.5 bg-secondary rounded-full text-muted-foreground border border-border">
                     {badge}
                   </span>

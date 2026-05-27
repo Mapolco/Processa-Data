@@ -9,10 +9,11 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent">
-                <span className="text-sm font-bold text-accent-foreground">P</span>
-              </div>
-              <span className="text-lg font-semibold tracking-tight text-primary-foreground">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#0f1f3d"/>
+                <text x="16" y="21" textAnchor="middle" fill="white" fontWeight="bold" fontSize="14" fontFamily="system-ui, sans-serif">PD</text>
+              </svg>
+              <span className="text-lg tracking-tight text-primary-foreground">
                 PROCESSA DATA
               </span>
             </Link>
@@ -57,7 +58,7 @@ export function Footer() {
                 info@processadata.cloud
               </a>
               <a 
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/processa-data"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
@@ -48,6 +48,15 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex md:items-center md:gap-3">
+            <a
+              href="https://www.linkedin.com/company/processa-data"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
             <Button variant="ghost" size="sm" asChild>
               <Link href="#contact">Prenota una Chiamata</Link>
             </Button>
