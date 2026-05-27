@@ -159,7 +159,7 @@ export function Hero() {
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground mb-6 text-balance">
-            Elaborazione Cedolini per Aziende Italiane. Gestita dall&apos;Albania.
+            Elaborazione Cedolini Paga per Aziende Italiane. 
           </h1>
 
           {/* Subheadline */}
