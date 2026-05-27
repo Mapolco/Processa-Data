@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useForm, ValidationError } from "@formspree/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Mail, Phone, Building2, User, MessageSquare } from "lucide-react"
 
 export function Contact() {
-  const [submitted, setSubmitted] = useState(false)
+  const [state, handleSubmit] = useForm("mzdwknbw")
 
   return (
     <section id="contact" className="py-16 lg:py-24 bg-background">
@@ -66,7 +66,7 @@ export function Contact() {
 
           {/* Right Column - Form */}
           <div className="bg-card rounded-2xl p-6 lg:p-8 border border-border shadow-lg">
-            {submitted ? (
+            {state.succeeded ? (
               <div className="text-center py-12">
                 <div className="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mx-auto mb-4">
                   <MessageSquare className="h-8 w-8" />
@@ -75,20 +75,11 @@ export function Contact() {
                 <p className="text-muted-foreground">
                   Abbiamo ricevuto il tuo messaggio e ti contatteremo a breve.
                 </p>
-                <Button 
-                  variant="outline" 
-                  className="mt-6"
-                  onClick={() => setSubmitted(false)}
-                >
-                  Invia un altro messaggio
-                </Button>
               </div>
             ) : (
               <form 
-                action="https://formspree.io/f/mzdwknbw" 
-                method="POST" 
+                onSubmit={handleSubmit}
                 className="space-y-5"
-                onSubmit={() => setSubmitted(true)}
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
@@ -105,6 +96,7 @@ export function Contact() {
                         required
                       />
                     </div>
+                    <ValidationError prefix="Nome" field="nome" errors={state.errors} className="text-sm text-red-500" />
                   </div>
 
                   <div className="space-y-2">
@@ -121,6 +113,7 @@ export function Contact() {
                         required
                       />
                     </div>
+                    <ValidationError prefix="Nome Studio" field="nome_studio" errors={state.errors} className="text-sm text-red-500" />
                   </div>
                 </div>
 
@@ -140,6 +133,7 @@ export function Contact() {
                         required
                       />
                     </div>
+                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-sm text-red-500" />
                   </div>
 
                   <div className="space-y-2">
@@ -156,6 +150,7 @@ export function Contact() {
                         className="pl-10"
                       />
                     </div>
+                    <ValidationError prefix="Telefono" field="telefono" errors={state.errors} className="text-sm text-red-500" />
                   </div>
                 </div>
 
@@ -170,14 +165,16 @@ export function Contact() {
                     rows={4}
                     required
                   />
+                  <ValidationError prefix="Messaggio" field="messaggio" errors={state.errors} className="text-sm text-red-500" />
                 </div>
 
                 <Button 
                   type="submit" 
                   className="w-full" 
                   size="lg"
+                  disabled={state.submitting}
                 >
-                  Richiedi una Demo
+                  {state.submitting ? "Invio in corso..." : "Richiedi una Demo"}
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center">
