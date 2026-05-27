@@ -8,34 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Mail, Phone, Building2, User, MessageSquare } from "lucide-react"
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    firmName: "",
-    email: "",
-    phone: "",
-    message: ""
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setIsSubmitting(false)
-    setSubmitted(true)
-    setFormData({ name: "", firmName: "", email: "", phone: "", message: "" })
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
 
   return (
     <section id="contact" className="py-16 lg:py-24 bg-background">
@@ -111,7 +84,12 @@ export function Contact() {
                 </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form 
+                action="https://formspree.io/f/mzdwknbw" 
+                method="POST" 
+                className="space-y-5"
+                onSubmit={() => setSubmitted(true)}
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -121,9 +99,7 @@ export function Contact() {
                       <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
+                        name="nome"
                         placeholder="Il tuo nome"
                         className="pl-10"
                         required
@@ -139,9 +115,7 @@ export function Contact() {
                       <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="firmName"
-                        name="firmName"
-                        value={formData.firmName}
-                        onChange={handleChange}
+                        name="nome_studio"
                         placeholder="Nome dello studio"
                         className="pl-10"
                         required
@@ -161,8 +135,6 @@ export function Contact() {
                         id="email"
                         name="email"
                         type="email"
-                        value={formData.email}
-                        onChange={handleChange}
                         placeholder="tu@azienda.com"
                         className="pl-10"
                         required
@@ -178,10 +150,8 @@ export function Contact() {
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="phone"
-                        name="phone"
+                        name="telefono"
                         type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
                         placeholder="+39 000 000 0000"
                         className="pl-10"
                       />
@@ -195,9 +165,7 @@ export function Contact() {
                   </Label>
                   <Textarea
                     id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    name="messaggio"
                     placeholder="Raccontaci le tue esigenze operative..."
                     rows={4}
                     required
@@ -208,9 +176,8 @@ export function Contact() {
                   type="submit" 
                   className="w-full" 
                   size="lg"
-                  disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Invio in corso..." : "Richiedi una Demo"}
+                  Richiedi una Demo
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center">
